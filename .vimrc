@@ -26,6 +26,11 @@ augroup python
     autocmd FileType python setlocal ts=4 sts=4 sw=4
 augroup end
 
+augroup scala
+    autocmd!
+    autocmd FileType scala setlocal ts=4 sts=4 sw=4
+augroup end
+
 set ttyfast                 "rendering
 set lazyredraw
 
@@ -160,9 +165,8 @@ nnoremap <leader>r :noh<cr>:redr!<cr>
 
 set wildcharm=<tab>         "mapping tab as autocomplete in command mode
 
-"switching tabs
-nnoremap <tab> gt
-nnoremap <s-tab> gT
+"next tabs
+nnoremap <s-tab> gt
 
 "new tab
 "nnoremap <leader><tab> :call feedkeys(":tabe \<tab>", 'tn')<cr>
@@ -175,10 +179,10 @@ nnoremap , :b <tab>
 nnoremap <leader>, :e <tab>
 
 "new vertical split
-nnoremap <leader><bs> :vs <tab>
+nnoremap <leader>\ :vs <tab>
 
 "next window
-nnoremap <bs> <c-w>w
+nnoremap \ <c-w>w
 
 "nvim: leave terminal
 try
@@ -188,6 +192,9 @@ endtry
 
 "same as "o" but stay in normal mode
 nnoremap <cr> o<esc>
+
+"switch to previously edited file
+nnoremap <bs> <c-^>
 
 if has('mouse')             "use mouse features
     set mouse=a
